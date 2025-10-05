@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Brain, Upload, Info } from "lucide-react";
+import { Home, Activity, Upload, Info } from "lucide-react";
 
 const Navigation = () => {
   const location = useLocation();
@@ -8,7 +8,7 @@ const Navigation = () => {
   
   const navItems = [
     { path: "/", label: "Home", icon: Home },
-    { path: "/query", label: "AI Query", icon: Brain },
+    { path: "/query", label: "AI Diagnostics", icon: Activity },
     { path: "/upload", label: "Upload Data", icon: Upload },
     { path: "/about", label: "About", icon: Info },
   ];
@@ -18,8 +18,8 @@ const Navigation = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center shadow-glow-primary">
-              <Brain className="w-6 h-6 text-primary-foreground" />
+            <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center shadow-glow-primary animate-pulse-glow">
+              <Activity className="w-6 h-6 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               Stellar Health AI

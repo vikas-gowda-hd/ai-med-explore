@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Mail, Send, Loader2, Github, Linkedin, Globe } from "lucide-react";
+import { Mail, Send, Loader2, Github, Linkedin, Globe, Rocket } from "lucide-react";
+import SpaceParticles from "@/components/SpaceParticles";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -64,35 +65,50 @@ const About = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-12">
-      <div className="container mx-auto px-4 max-w-5xl">
+    <div className="min-h-screen pt-24 pb-12 relative">
+      <SpaceParticles />
+      
+      <div className="container mx-auto px-4 max-w-5xl relative z-10">
         <div className="text-center mb-12 animate-slide-up">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            About Stellar Health AI
+          <div className="inline-block mb-6 relative">
+            <div className="absolute inset-0 bg-gradient-primary blur-2xl opacity-50 animate-pulse-glow"></div>
+            <div className="relative w-20 h-20 rounded-full bg-gradient-primary flex items-center justify-center shadow-glow-primary animate-spin-slow">
+              <Rocket className="w-10 h-10 text-primary-foreground" />
+            </div>
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
+              Mission Overview
+            </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Bridging the gap between artificial intelligence and medical research
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+            Advanced AI medical technology for astronauts exploring the cosmos
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {/* About Section */}
-          <Card className="p-8 bg-card border-primary/20 shadow-card animate-fade-in">
-            <h2 className="text-2xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+          <Card className="p-8 bg-card/90 backdrop-blur-sm border-2 border-primary/30 shadow-card animate-fade-in relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-primary opacity-10 blur-3xl animate-pulse-glow"></div>
+            
+            <h2 className="text-3xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent relative z-10">
               Our Mission
             </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-muted-foreground leading-relaxed text-lg relative z-10">
               <p>
-                Stellar Health AI is an advanced research platform that leverages cutting-edge artificial intelligence 
-                to unlock insights from vast medical literature databases.
+                <strong className="text-foreground">Stellar Health AI</strong> is a cutting-edge medical diagnostic system 
+                designed specifically for <strong className="text-primary">astronauts in deep space missions</strong>.
               </p>
               <p>
-                Our system combines state-of-the-art language models with vector databases to provide researchers, 
-                healthcare professionals, and students with instant access to evidence-based medical knowledge.
+                When medical emergencies occur millions of miles from Earth, immediate expert care isn't an option. 
+                Our AI-powered platform provides <strong className="text-foreground">real-time diagnostic support</strong>, 
+                analyzing symptoms, vital signs, and medical data to guide astronauts through critical health decisions.
               </p>
               <p>
-                By processing and understanding complex medical research papers, we aim to accelerate medical discoveries 
-                and improve patient outcomes worldwide.
+                By combining advanced language models with comprehensive medical databases, we deliver 
+                <strong className="text-accent"> instant, evidence-based medical guidance</strong> for space crews, 
+                ensuring their safety and well-being during extended missions to Mars, lunar bases, and beyond.
               </p>
             </div>
 
@@ -142,14 +158,16 @@ const About = () => {
           </Card>
 
           {/* Contact Form */}
-          <Card className="p-8 bg-card border-primary/20 shadow-card animate-fade-in">
-            <div className="mb-6">
-              <div className="w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center mb-4 shadow-glow-accent">
-                <Mail className="w-6 h-6 text-accent-foreground" />
+          <Card className="p-8 bg-card/90 backdrop-blur-sm border-2 border-primary/30 shadow-card animate-fade-in relative overflow-hidden">
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-accent opacity-10 blur-3xl animate-pulse-glow"></div>
+            
+            <div className="mb-6 relative z-10">
+              <div className="w-14 h-14 rounded-full bg-gradient-accent flex items-center justify-center mb-4 shadow-glow-accent animate-bounce-slow">
+                <Mail className="w-7 h-7 text-accent-foreground" />
               </div>
-              <h2 className="text-2xl font-bold mb-2">Get In Touch</h2>
-              <p className="text-muted-foreground">
-                Have questions or feedback? We'd love to hear from you.
+              <h2 className="text-3xl font-bold mb-3">Mission Control Contact</h2>
+              <p className="text-muted-foreground text-lg">
+                Questions about the system? Reach out to our team.
               </p>
             </div>
 
@@ -222,10 +240,18 @@ const About = () => {
         </div>
 
         {/* Developer Info */}
-        <Card className="p-6 bg-gradient-primary text-center animate-fade-in">
-          <p className="text-primary-foreground font-medium">
-            Developed with ❤️ for advancing medical research through AI
-          </p>
+        <Card className="p-8 bg-gradient-to-br from-primary via-secondary to-accent text-center animate-fade-in relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-32 h-32 border-2 border-white/10 rounded-full animate-spin-slow"></div>
+          <div className="absolute bottom-0 right-0 w-24 h-24 border-2 border-white/10 rounded-full animate-spin-slow" style={{ animationDirection: "reverse" }}></div>
+          
+          <div className="relative z-10">
+            <p className="text-white text-xl font-bold mb-2">
+              🚀 Advancing Space Medicine Through AI Innovation
+            </p>
+            <p className="text-white/80">
+              Protecting astronaut health across the cosmos
+            </p>
+          </div>
         </Card>
       </div>
     </div>
